@@ -14,8 +14,8 @@ times = [time - startTime for time in times]
 initialDeflection = dists[0]
 dists = [(dist-initialDeflection) / 1000 for dist in dists]
 
-fig, (ax1, ax2) = plt.subplots(
-    nrows=2
+fig, (ax1, ax2, ax3) = plt.subplots(
+    nrows=3
 )
 
 # set up plots
@@ -29,8 +29,13 @@ ax2.set_title("Applied Load Over Time")
 ax2.set_xlabel("Time [s]")
 ax2.set_ylabel("Load [N]")
 
+ax3.set_title("Applied Load vs Deflection")
+ax3.set_xlabel("Distance [m]")
+ax3.set_ylabel("Load [N]")
+
 ax1.plot(times, dists)
 ax2.plot(times, loads)
+ax3.plot(dists, loads)
 
 fig.tight_layout()
 
